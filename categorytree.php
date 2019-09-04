@@ -18,7 +18,7 @@ class CategoryTree
 
     private function &findCategory(array &$children, string $category): array {
         if (array_key_exists($category, $children)) return $children[$category];
-        foreach($children as $child) {
+        foreach($children as &$child) {
             $founCategory=&$this->findCategory($child, $category);
             if (!is_null($founCategory)) return $founCategory;
         }
